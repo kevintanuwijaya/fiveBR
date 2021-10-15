@@ -55,8 +55,10 @@
                 $sql = "SELECT * FROM Love WHERE user_id = $userID AND gig_id = $gigID";
                 $result = $con->query($sql);
 
-                if($result->num_rows > 0){
-                    $love = 1;
+                if($result){
+                    if($result->num_rows > 0){
+                        $love = 1;
+                    }
                 }
 
 
@@ -122,11 +124,11 @@
                 $sql = "SELECT * FROM reviews WHERE user_id = $userID AND gig_id = $gigID";
                 $result2 = $con->query($sql);
 
-                if($result->num_rows > 0 && $result2->num_rows == 0){
-                    $reviewStatus = 1;
+                if($result && $result2){
+                    if($result->num_rows > 0 && $result2->num_rows == 0){
+                        $reviewStatus = 1;
+                    }
                 }
-
-
             @endphp
         
             
